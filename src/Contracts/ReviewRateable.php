@@ -1,63 +1,53 @@
 <?php
-
-namespace Trexology\ReviewRateable\Contracts;
-
-use Illuminate\Database\Eloquent\Model;
-
-interface ReviewRateable
-{
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function ratings();
-
-    /**
-     *
-     * @return mix
-     */
-    public function averageRating($round= null);
-
-    /**
-     *
-     * @return mix
-     */
-    public function countRating();
-
-    /**
-     *
-     * @return mix
-     */
-    public function sumRating();
-
-    /**
-     * @param $max
-     *
-     * @return mix
-     */
-    public function ratingPercent($max = 5);
-
-    /**
-     * @param $data
-     * @param Model      $author
-     * @param Model|null $parent
-     *
-     * @return mixed
-     */
-    public function rating($data, Model $author, Model $parent = null);
-
-    /**
-     * @param $id
-     * @param $data
-     * @param Model|null $parent
-     *
-     * @return mixed
-     */
-    public function updateRating($id, $data, Model $parent = null);
-
-    /**
-     * @param $id
-     *
-     * @return mixed
-     */
-    public function deleteRating($id);
-}
+	namespace Trexology\ReviewRateable\Contracts;
+	use Illuminate\Database\Eloquent\Model;
+	interface ReviewRateable
+	{
+		/**
+		 * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+		 */
+		public function ratings();
+		/**
+		 *
+		 * @return double
+		 */
+		public function averageRating($round = null);
+		/**
+		 *
+		 * @return int
+		 */
+		public function countRating();
+		/**
+		 *
+		 * @return double
+		 */
+		public function sumRating();
+		/**
+		 * @param $max
+		 *
+		 * @return double
+		 */
+		public function ratingPercent($max = 5);
+		/**
+		 * @param $data
+		 * @param Model      $author
+		 * @param Model|null $parent
+		 *
+		 * @return mixed
+		 */
+		public function rating($data, Model $author, Model $parent = null);
+		/**
+		 * @param $id
+		 * @param $data
+		 * @param Model|null $parent
+		 *
+		 * @return mixed
+		 */
+		public function updateRating($id, $data, Model $parent = null);
+		/**
+		 * @param $id
+		 *
+		 * @return mixed
+		 */
+		public function deleteRating($id);
+	}
